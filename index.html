@@ -533,5 +533,127 @@
             document.getElementById("demo40").innerHTML = myCar.carname;
         }
     </script>
+    <p id="demo41">javascript class static method</p>
+    <button onclick="myStaticMethod()">Static Method</button>
+    <script>
+        function myStaticMethod() {
+            class Car {
+                constructor(brand) {
+                    this.carname = brand;
+                }
+                static hello() {
+                    return "Hello!!";
+                }
+            }
+            document.getElementById("demo41").innerHTML = Car.hello();
+        }
+    </script>
+    <p id="demo42">javascript function sequence</p>
+    <button onclick="myFunctionSequence()">Function Sequence</button>
+    <script>
+        function myFunctionSequence() {
+            function myDisplayer(some) {
+                document.getElementById("demo42").innerHTML = some;
+            }   
+            function myCalculator(num1, num2) {
+                let sum = num1 + num2;
+                return sum;
+            }
+            myDisplayer(myCalculator(5, 5));
+            myDisplayer(myCalculator(5, 10));
+        }
+    </script>
+    <p id="demo43">javascript callback</p>
+    <button onclick="myCalculator(5, 5, myDisplayer)">Callback</button>
+    <script>
+        function myCalculator(num1, num2, myCallback) {
+            let sum = num1 + num2;
+            myCallback(sum);
+        }
+        function myDisplayer(some) {
+            document.getElementById("demo43").innerHTML = some;
+        }
+    </script>
+    <p id="demo44">javascript waiting for timeout</p>
+    <button onclick="myDisplayAfterTimeout()">Waiting for Timeout</button>
+    <script>
+        function myDisplayAfterTimeout() {
+            setTimeout(myDisplayer, 3000, "Hello World");
+        }
+        function myDisplayer(some) {
+            document.getElementById("demo44").innerHTML = some;
+        }
+    </script>
+    <p id="demo45">javascript waiting for interval</p>
+    <button onclick="myDisplayAfterInterval()">Waiting for Interval</button>
+    <script>
+        function myDisplayAfterInterval() {
+            setInterval(myDisplayer, 1000);
+            function myDisplayer() {
+                let d = new Date();
+                document.getElementById("demo45").innerHTML = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+            }
+        }
+    </script>
+    <p id="demo46">javascript promise</p>
+    <button onclick="myPromise()">Promise</button>
+    <script>
+        function myPromise() {
+            let myPromise = new Promise(function(myResolve, myReject) {
+                let x = 0;
+                if (x == 0) {
+                    myResolve("OK");
+                } else {
+                    myReject("Error");
+                }
+            });
+            myPromise.then(
+                function(value) {myDisplayer(value);},
+                function(error) {myDisplayer(error);}
+            );
+            function myDisplayer(some) {
+                document.getElementById("demo46").innerHTML = some;
+            }
+        }
+    </script>
+    <p id="demo47">javascript promise waiting for timeout</p>
+    <button onclick="myPromiseWaitingForTimeout()">Promise Waiting for Timeout</button>
+    <script>
+        function myPromiseWaitingForTimeout() {
+            let myPromise = new Promise(function(myResolve, myReject) {
+                setTimeout(function() {myResolve("I love you!");}, 3000);
+            });
+            myPromise.then(function(value) {
+                document.getElementById("demo47").innerHTML = value;
+            });
+        }
+    </script>
+    <p id="demo48">javascript promise waiting for interval</p>
+    <button onclick="myPromiseWaitingForInterval()">Promise Waiting for Interval</button>
+    <script>
+        function myPromiseWaitingForInterval() {
+            let myPromise = new Promise(function(myResolve, myReject) {
+                setInterval(function() {myResolve("I love you!");}, 1000);
+            });
+            myPromise.then(function(value) {
+                let d = new Date();
+                document.getElementById("demo48").innerHTML = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + " " + value;
+            });
+        }
+    </script>
+    <p id="demo49">javascript async await</p>
+    <button onclick="myAsyncAwait()">Async Await</button>
+    <script>
+        function myAsyncAwait() {
+            async function myDisplay() {
+                let myPromise = new Promise(function(myResolve, myReject) {
+                    setTimeout(function() {myResolve("I love you!");}, 3000);
+                });
+                let result = await myPromise;
+                document.getElementById("demo49").innerHTML = result;
+            }
+            myDisplay();
+        }
+    </script>
     </body>
 </html>
