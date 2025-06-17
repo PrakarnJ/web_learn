@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My first web page</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <button id="myButton">Click me</button>
+        <script src="script.js"></script>
+
+        <h2>Demo JavaScript in Body</h2>
+        <p id="demo">A Paragraph</p>
+        <button type="button" onclick="myFunction()">Try it</button>
+        <p id="demo1"></p>
+        <script>
+      document.getElementById("demo1").innerText = "Hello World!";
+    </script>
+        <script>
+      document.write(5 + 6);
+    </script>
+        <button onclick="window.print()">Print this page</button>
+        <p id="demo2">Car name</p>
+        <button onclick="carFunction()">Try it</button>
+        <p id="demo3">Fahrenheit to Celsius</p>
+        <button onclick="toCelsius()">Try it</button>
+        <p id="demo4">Person</p>
+        <button onclick="getPerson()">Try it</button>
+        <p id="demo5">Array</p>
+        <button onclick="getArray()">Try it</button>
+        <p id="demo6">Person</p>
+        <p id="demo7">Person</p>
+        <script>
+      function Person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+      }
+      const myFather = new Person("John", "Doe", 50, "blue");
+      const myMother = new Person("Sally", "Rally", 48, "green");
+      Person.prototype.nationality = "English";
+      document.getElementById("demo6").innerHTML =
+        "My father is " +
+        myFather.age +
+        " and my mother is " +
+        myMother.age +
+        " and nationality is " +
+        Person.prototype.nationality;
+      Person.prototype.changeName = function (name) {
+        this.lastName = name;
+      };
+      myFather.changeName("Smith");
+      document.getElementById("demo7").innerHTML =
+        "My father is " +
+        myFather.age +
+        " and my mother is " +
+        myMother.age +
+        " and nationality is " +
+        Person.prototype.nationality +
+        " and last name is " +
+        myFather.lastName;
+    </script>
+        <button onclick="this.innerHTML = Date()">The time is?</button>
+
+        <button onclick="myReplace()">Try it</button>
+        <p id="demo8">Please visit Microsoft and Microsoft!</p>
+        <script>
+      function myReplace() {
+        let text = document.getElementById("demo8").innerHTML;
+        document.getElementById("demo8").innerHTML = text.replace(
+          /Microsoft/g,
+          "W3Schools"
+        );
+      }
+    </script>
+        <p id="demo9">If else condition</p>
+        <button onclick="myIfElse()">Ifelse</button>
+        <script>
+      function myIfElse() {
+        let text1;
+        if (Math.random() < 0.5) {
+          text1 = "<a href='https://www.w3schools.com'>Visit W3Schools</a>";
+        } else {
+          text1 = "<a href='https://www.google.com'>Visit Google</a>";
+        }
+        document.getElementById("demo9").innerHTML = text1;
+      }
+    </script>
+        <p id="demo10">Switch condition</p>
+        <button onclick="mySwitch()">Switch</button>
+        <script>
+      function mySwitch() {
+        let text2;
+        switch (new Date().getDay()) {
+          case 0:
+            text2 = "Today is Sunday";
+            break;
+          case 1:
+            text2 = "Today is Monday";
+            break;
+          case 2:
+            text2 = "Today is Tuesday";
+            break;
+          case 3:
+          case 4:
+            text2 = "It is weekend";
+            break;
+          default:
+            text2 = "Looking forward to the weekend";
+        }
+        document.getElementById("demo10").innerHTML = text2;
+      }
+    </script>
+        <p id="demo11">For loop</p>
+        <button onclick="myFor()">For</button>
+        <script>
+      function myFor() {
+        const cars = ["BMW", "Volvo", "Saab", "Ford"];
+        let len = cars.length;
+        let text3 = "";
+        for (let i = 0; i < len; i++) {
+          text3 += cars[i] + "<br>";
+        }
+        document.getElementById("demo11").innerHTML = text3;
+      }
+    </script>
+        <p id="demo12">For in loop</p>
+        <button onclick="myForIn()">For in</button>
+        <script>
+      function myForIn() {
+        const person = { fname: "John", lname: "Doe", age: 25 };
+        let text4 = "";
+        for (let x in person) {
+          text4 += person[x] + "<br>";
+        }
+        document.getElementById("demo12").innerHTML = text4;
+      }
+    </script>
+        <p id="demo13">For of loop</p>
+        <button onclick="myForOf()">For of</button>
+        <script>
+      function myForOf() {
+        const cars = ["BMW", "Volvo", "Saab", "Ford"];
+        let text5 = "";
+        for (let x of cars) {
+          text5 += x + "<br>";
+        }
+        document.getElementById("demo13").innerHTML = text5;
+      }
+    </script>
+        <p id="demo14">While loop</p>
+        <button onclick="myWhile()">While</button>
+        <script>
+      function myWhile() {
+        let i = 0;
+        let text6 = "";
+        while (i < 10) {
+          text6 += i + "<br>";
+          i++;
+        }
+        document.getElementById("demo14").innerHTML = text6;
+      }
+    </script>
+        <p id="demo15">Do while loop</p>
+        <button onclick="myDoWhile()">Do while</button>
+        <script>
+      function myDoWhile() {
+        let i = 0;
+        let text7 = "";
+        do {
+          text7 += i + "<br>";
+          i++;
+        } while (i < 10);
+        document.getElementById("demo15").innerHTML = text7;
+      }
+    </script>
+        <p id="demo16">Break</p>
+        <button onclick="myBreak()">Break</button>
+        <script>
+      function myBreak() {
+        let text8 = "";
+        for (let i = 0; i < 10; i++) {
+          if (i === 3) {
+            break;
+          }
+          text8 += i + "<br>";
+        }
+        document.getElementById("demo16").innerHTML = text8;
+      }
+    </script>
+        <p id="demo17">Continue</p>
+        <button onclick="myContinue()">Continue</button>
+        <script>
+      function myContinue() {
+        let text9 = "";
+        for (let i = 0; i < 10; i++) {
+          if (i === 3) {
+            continue;
+          }
+          text9 += i + "<br>";
+        }
+        document.getElementById("demo17").innerHTML = text9;
+      }
+    </script>
+        <p id="demo18">Set</p>
+        <button onclick="mySet()">Set</button>
+        <script>
+      function mySet() {
+        const letters = new Set(["a", "b", "c"]);
+        letters.add("d");
+        letters.add("e");
+        letters.add("f");
+        letters.add("g");
+        letters.add("h");
+        letters.add("i");
+        // List all elements
+        let text10 = "";
+        for (let x of letters) {
+          text10 += x + "<br>";
+        }
+        document.getElementById("demo18").innerHTML = text10;
+      }
+    </script>
+        <p id="demo19">Map</p>
+        <button onclick="myMap()">Map</button>
+        <script>
+      function myMap() {
+        const fruits = new Map([
+          ["apple", 500],
+          ["banana", 300],
+          ["orange", 200],
+        ]);
+        // Map method
+        fruits.set("pineapple", 100);
+        fruits.set("mango", 200);
+        fruits.set("strawberry", 300);
+        fruits.set("watermelon", 400);
+        fruits.set("grape", 500);
+        fruits.set("cherry", 600);
+        fruits.set("pear", 700);
+        // List all elements
+        let text11 = "";
+        for (let x of fruits) {
+          text11 += x + "<br>";
+        }
+        document.getElementById("demo19").innerHTML = text11;
+      }
+    </script>
+        <p id="demo20">typeof</p>
+        <button onclick="myTypeof()">Typeof</button>
+        <script>
+      function myTypeof() {
+        let text12 = "";
+        text12 += typeof "John" + "<br>";
+        text12 += typeof 3.14 + "<br>";
+        text12 += typeof true + "<br>";
+        text12 += typeof false + "<br>";
+        text12 += typeof x + "<br>";
+        document.getElementById("demo20").innerHTML = text12;
+      }
+    </script>
+        <p id="demo21">toString</p>
+        <button onclick="myToString()">ToString</button>
+        <script>
+      function myToString() {
+        let text13 = "";
+        text13 += (3.14).toString() + "<br>";
+        text13 += true.toString() + "<br>";
+        text13 += false.toString() + "<br>";
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        text13 += fruits.toString() + "<br>";
+        text13 += fruits.join(" * ") + "<br>";
+        document.getElementById("demo21").innerHTML = text13;
+      }
+    </script>
+        <p id="demo22">destructuring</p>
+        <button onclick="myDestructuring()">Destructuring</button>
+        <script>
+      function myDestructuring() {
+        const person = { name: "John", age: 30, city: "New York" };
+        const { name, age, city } = person;
+        document.getElementById("demo22").innerHTML =
+          name + " " + age + " " + city;
+      }
+    </script>
+        <p id="demo23">bitwise</p>
+        <button onclick="myBitwise()">Bitwise</button>
+        <script>
+      function myBitwise() {
+        let text14 = "";
+        text14 += (5 & 1) + "<br>";
+        text14 += (5 | 1) + "<br>";
+        text14 += (5 ^ 1) + "<br>";
+        text14 += ~5 + "<br>";
+        text14 += (5 << 1) + "<br>";
+        text14 += (5 >> 1) + "<br>";
+        text14 += (5 >>> 1) + "<br>";
+        document.getElementById("demo23").innerHTML = text14;
+      }
+    </script>
+        <p id="demo24">Regular expression</p>
+        <button onclick="myRegularExpression()">Regular Expression</button>
+        <script>
+      function myRegularExpression() {
+        let text15 = "Visit W3Schools!";
+        let n = text15.search(/w3schools/i);
+        document.getElementById("demo24").innerHTML = n;
+      }
+    </script>
+        <p id="demo25">Error handling</p>
+        <button onclick="myErrorHandling()">Error Handling</button>
+        <script>
+      function myErrorHandling() {
+        try {
+          const x = y + 1;
+        } catch (err) {
+          document.getElementById("demo25").innerHTML = err.message;
+        }
+      }
+    </script>
+        <p id="demo26">Throw</p>
+        <button onclick="myThrow()">Throw</button>
+        <script>
+      function myThrow() {
+        let x = 1;
+        if (x == "") {
+          throw "x is empty";
+        }
+        document.getElementById("demo26").innerHTML = x;
+      }
+    </script>
+        <p id="demo27">Try catch</p>
+        <button onclick="myTryCatch()">Try Catch</button>
+        <script>
+      function myTryCatch() {
+        try {
+          const x = y + 1;
+        } catch (err) {
+          document.getElementById("demo27").innerHTML = err.message;
+        }
+      }
+    </script>
+        <p id="demo28">Try catch finally</p>
+        <button onclick="myTryCatchFinally()">Try Catch Finally</button>
+        <script>
+      function myTryCatchFinally() {
+        try {
+          const x = y + 1;
+        } catch (err) {
+          document.getElementById("demo28").innerHTML = err.message;
+        } finally {
+          document.getElementById("demo28").innerHTML = "Finally";
+        }
+      }
+    </script>
+        <p id="demo29">stru</p>
+        <button onclick="myStrict()">Strict</button>
+        <script>
+      function myStrict() {
+        "use strict";
+        let x = 3.14;
+        document.getElementById("demo29").innerHTML = x;
+      }
+    </script>
+        <p id="demo30">this keyword</p>
+        <button onclick="myThis()">This</button>
+        <script>
+      function myThis() {
+        const person = {
+          firstName: "John",
+          lastName: "Doe",
+          id: 5566,
+          fullName: function () {
+            return this.firstName + " " + this.lastName;
+          },
+        };
+        document.getElementById("demo30").innerHTML = person.fullName();
+      }
+    </script>
+        <p id="demo31">Explicit binding</p>
+        <button onclick="myExplicitBinding()">Explicit Binding</button>
+        <script>
+      function myExplicitBinding() {
+        const person1 = {
+          fullName: function () {
+            return this.firstName + " " + this.lastName;
+          },
+        };
+        const person2 = {
+          firstName: "John",
+          lastName: "Doe",
+        };
+
+        let x = person1.fullName.call(person2);
+        document.getElementById("demo31").innerHTML = x;
+      }
+    </script>
+        <p id="demo32">Function borrowing</p>
+        <button onclick="myFunctionBorrowing()">Function Borrowing</button>
+        <script>
+      function myFunctionBorrowing() {
+        const person = {
+          firstName: "John",
+          lastName: "Doe",
+          fullName: function () {
+            return this.firstName + " " + this.lastName;
+          },
+        };
+        const member = {
+          firstName: "Hege",
+          lastName: "Nilsen",
+        };
+
+        let fullName = person.fullName.bind(member);
+        document.getElementById("demo32").innerHTML = fullName();
+      }
+    </script>
+        <p id="demo33">Arrow function</p>
+        <button onclick="myArrowFunction()">Arrow Function</button>
+        <script>
+      function myArrowFunction() {
+        const myFunction = (a, b) => a * b;
+        document.getElementById("demo33").innerHTML = myFunction(4, 3);
+      }
+    </script>
+        <p id="demo34">javascript class</p>
+        <button onclick="myClass()">Class</button>
+        <script>
+      function myClass() {
+        class Car {
+          constructor(name, year) {
+            this.name = name;
+            this.year = year;
+          }
+        }
+        const myCar = new Car("Ford", 2014);
+        document.getElementById("demo34").innerHTML =
+          myCar.name + " " + myCar.year;
+      }
+    </script>
+        <p id="demo35">javascript class method</p>
+        <button onclick="myClassMethod()">Class Method</button>
+        <script>
+      function myClassMethod() {
+        class Car {
+          constructor(name, year) {
+            this.name = name;
+            this.year = year;
+          }
+          age(x) {
+            let date = new Date();
+            return x - this.year;
+          }
+        }
+        const date = new Date();
+        let year = date.getFullYear();
+        const myCar = new Car("Ford", 2014);
+        document.getElementById("demo35").innerHTML =
+          "My car is " + myCar.age(year) + " years old.";
+      }
+    </script>
+        <p id="demo36">javascript modules import export</p>
+        <button id="modultButton">Modules</button>
+        <script type="module">
+      import message from "./message.js";
+      document.getElementById("modultButton").addEventListener("click", () => {
+        document.getElementById("demo36").innerHTML = message();
+      });
+    </script>
+        <p id="demo37">javascript create object from JSON String</p>
+        <button onclick="myCreateObject()">Create Object</button>
+        <script>
+      function myCreateObject() {
+        let text =
+          '{"employees":[{"firstName":"John","lastName":"Doe"},{"firstName":"Anna","lastName":"Smith"},{"firstName":"Peter","lastName":"Jones"}]}';
+        const obj = JSON.parse(text);
+        document.getElementById("demo37").innerHTML =
+          obj.employees[0].firstName + " " + obj.employees[0].lastName;
+      }
+    </script>
+        <p id="demo38">console log for debugging</p>
+        <button onclick="myConsoleLog()">Console Log</button>
+        <script>
+      function myConsoleLog() {
+        console.log(100);
+      }
+    </script>
+    <p id="demo39">javascript class inheritance</p>
+    <button onclick="myClassInheritance()">Class Inheritance</button>
+    <script>
+        function myClassInheritance() {
+            class Car {
+                constructor(brand) {
+                    this.carname = brand;
+                }
+                present() {
+                    return "I have a " + this.carname;
+                }
+            }
+            class Model extends Car {
+                constructor(brand, mod) {
+                    super(brand);
+                    this.model = mod;
+                }
+                show() {
+                    return this.present() + ", it is a " + this.model;
+                }
+            }
+            const myCar = new Model("Ford", "Mustang");
+            document.getElementById("demo39").innerHTML = myCar.show();
+        }
+    </script>
+    <p id="demo40">javascript class getter and setter</p>
+    <button onclick="myGetterSetter()">Getter Setter</button>
+    <script>
+        function myGetterSetter() {
+            class Car {
+                constructor(brand) {
+                    this._carname = brand;  
+                }
+                get carname() {
+                    return this._carname;
+                }
+                set carname(x) {
+                    this._carname = x;
+                }
+            }
+            const myCar = new Car("Ford");
+            myCar.carname = "Volvo";
+            document.getElementById("demo40").innerHTML = myCar.carname;
+        }
+    </script>
+    </body>
+</html>
